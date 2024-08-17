@@ -6,6 +6,8 @@ import TabPanel from '@mui/lab/TabPanel';
 import Navbar from '@/components/Common/Navbar';
 import { Divider, Stack } from '@mui/material';
 import { TabContext } from '@mui/lab';
+import Record from '@/components/Record/Record';
+import Transcribed from '@/components/Transcribed/Transcribed';
 
 const Home = () => {
   const [content, setContent] = React.useState('record');
@@ -62,8 +64,12 @@ const Home = () => {
             <Tab label="Transcribed" value="transcribed" />
           </Tabs>
         </Box>
-        <TabPanel value="record">Record</TabPanel>
-        <TabPanel value="transcribed">Transcribed</TabPanel>
+        <TabPanel value="record">
+          <Record />
+        </TabPanel>
+        <TabPanel value="transcribed">
+          <Transcribed />
+        </TabPanel>
       </TabContext>
     </Stack>
   );
