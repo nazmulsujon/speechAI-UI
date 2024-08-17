@@ -16,8 +16,8 @@ export default function Navbar() {
       }}
     >
       <Stack alignItems="center" direction="row" spacing={1}>
-        <Link to="/">
-          <img src="/logo.svg" alt="logo" style={{ width: '32px' }} />
+        <Link to="/" style={{ width: '32px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <img src="/logo.svg" alt="logo" style={{ width: '100%' }} />
         </Link>
         <Box>
           <Typography variant="subtitle1" component="div" sx={{ display: 'flex', alignItems: 'center' }}>
@@ -26,7 +26,7 @@ export default function Navbar() {
         </Box>
       </Stack>
       <IconButton edge="end" color="inherit" aria-label="menu">
-        <img src="/cross-icon.svg" alt="logo" />
+        <img src="/cross-icon.svg" alt="logo" style={{ width: '24px' }} />
       </IconButton>
     </Container>
   );
