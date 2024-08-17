@@ -1,10 +1,8 @@
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
-import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Stack } from '@mui/material';
 import { useState } from 'react';
@@ -35,10 +33,14 @@ const recordings = [
 ];
 
 export default function Transcribed() {
-  const [isPlay, setIsPlay] = useState(true);
+  const [playStates, setPlayStates] = useState(recordings.map(() => true));
+
+  const togglePlayState = (index: number) => {
+    setPlayStates((prevState) => prevState.map((state, i) => (i === index ? !state : state)));
+  };
 
   return (
-    <Stack gap={2} sx={{ maxHeight: '500px', overflowY: 'auto', scrollbarWidth: 'thin', pr: '6px' }}>
+    <Stack gap={2} sx={{ maxHeight: '486px', overflowY: 'auto', scrollbarWidth: 'thin', pr: '6px' }}>
       {recordings.map((recording, index) => (
         <Card
           key={index}
@@ -48,15 +50,13 @@ export default function Transcribed() {
           <CardHeader
             sx={{ pb: '8px', pt: '12px' }}
             avatar={
-              isPlay ? (
-                <IconButton onClick={() => setIsPlay(false)} sx={{ cursor: 'pointer' }} aria-label="pause">
-                  <img src="/pause-icon.svg" alt="pause" />
-                </IconButton>
-              ) : (
-                <IconButton onClick={() => setIsPlay(true)} sx={{ cursor: 'pointer' }} aria-label="play">
-                  <img src="/play-icon.svg" alt="play" />
-                </IconButton>
-              )
+              <IconButton onClick={() => togglePlayState(index)} aria-label={playStates[index] ? 'pause' : 'play'}>
+                <img
+                  src={playStates[index] ? '/pause-icon.svg' : '/play-icon.svg'}
+                  alt={playStates[index] ? 'pause' : 'play'}
+                  style={{ width: '24px' }}
+                />
+              </IconButton>
             }
             action={
               <IconButton aria-label="settings">
@@ -66,7 +66,7 @@ export default function Transcribed() {
             title={recording.title}
           />
 
-          <CardContent sx={{ pt: 0, maxHeight: '70px', overflowY: 'auto', scrollbarWidth: 'thin' }}>
+          <CardContent sx={{ pt: 0, maxHeight: '48px', overflowY: 'auto', scrollbarWidth: 'thin' }}>
             <Typography variant="body2" color="text.secondary">
               {recording.description}
             </Typography>

@@ -12,7 +12,7 @@ import Transcribed from '@/components/Transcribed/Transcribed';
 const Home = () => {
   const [content, setContent] = React.useState('record');
 
-  const handleChange = (event: React.SyntheticEvent, newContent: string) => {
+  const handleChange = (_: React.SyntheticEvent, newContent: string) => {
     if (content !== newContent) {
       setContent(newContent);
     }
@@ -29,7 +29,7 @@ const Home = () => {
             width: '88%',
             height: '41px',
             mx: 'auto',
-            px: '5px',
+            px: 'px',
             bgcolor: '#F3F3F3',
             borderRadius: '30px',
           }}
