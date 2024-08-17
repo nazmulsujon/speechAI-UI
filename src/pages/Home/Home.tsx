@@ -26,10 +26,10 @@ const Home = () => {
         <Box
           sx={{
             mt: '16px',
-            width: '80%',
-            height: '40px',
+            width: '88%',
+            height: '41px',
             mx: 'auto',
-            px: '4px',
+            px: '5px',
             bgcolor: '#F3F3F3',
             borderRadius: '30px',
           }}

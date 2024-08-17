@@ -23,24 +23,6 @@ const uploadBtnStyle = {
   },
 };
 
-const premiumBtnStyle = {
-  width: '100%',
-  height: '48px',
-  bgcolor: '#F2F2F2',
-  color: '#fff',
-  fontWeight: 500,
-  fontSize: '0.79rem',
-  border: 'none',
-  display: 'flex',
-  justifyContent: 'center',
-  background: 'linear-gradient(to bottom,#F9F08B , #E8C31D)',
-  alignItems: 'center',
-  '&:hover': {
-    bgcolor: '#E0E0E0',
-    border: 'none',
-  },
-};
-
 const Record = () => {
   const [startRecord, setStartRecord] = useState(true);
 
@@ -65,7 +47,9 @@ const Record = () => {
           style={{ color: 'red' }}
         />
       </Box>
+
       <Divider sx={{ width: '100%', fontSize: '12px' }}>OR</Divider>
+
       <Button
         variant="outlined"
         startIcon={<ContentPasteIcon fontSize="small" />}
@@ -86,15 +70,36 @@ const Record = () => {
       <Stack gap={2}>
         <Stack gap={2} direction="row" alignItems="center">
           <Button variant="outlined" sx={uploadBtnStyle}>
-            <img src="/public/audio-icon.svg" alt="audioIcon" style={{ width: '24px' }} />
+            <img src="/public/audio-icon.svg" alt="audioIcon" style={{ width: '24px', marginBottom: '2px' }} />
             Audio
           </Button>
+
           <Button variant="outlined" sx={uploadBtnStyle}>
-            <img src="/public/video-icon.svg" alt="vedioIcon" style={{ width: '24px' }} />
+            <img src="/public/video-icon.svg" alt="vedioIcon" style={{ width: '24px', marginBottom: '2px' }} />
             Vedio
           </Button>
         </Stack>
-        <Button variant="outlined" sx={premiumBtnStyle}>
+
+        <Button
+          variant="outlined"
+          sx={{
+            width: '100%',
+            height: '48px',
+            bgcolor: '#F2F2F2',
+            color: '#fff',
+            fontWeight: 500,
+            fontSize: '0.79rem',
+            border: 'none',
+            display: 'flex',
+            justifyContent: 'center',
+            background: 'linear-gradient(to bottom,#F9F10B , #E8C33D)',
+            alignItems: 'center',
+            '&:hover': {
+              bgcolor: '#E0E0E0',
+              border: 'none',
+            },
+          }}
+        >
           <img src="/public/premium-icon.svg" alt="vedioIcon" style={{ width: '24px', marginRight: '6px' }} />
           Go Premium
         </Button>
