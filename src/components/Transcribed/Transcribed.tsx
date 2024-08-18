@@ -33,7 +33,7 @@ const recordings = [
 ];
 
 export default function Transcribed() {
-  const [playStates, setPlayStates] = useState(recordings.map(() => true));
+  const [playStates, setPlayStates] = useState(recordings.map(() => false));
 
   const togglePlayState = (index: number) => {
     setPlayStates((prevState) => prevState.map((state, i) => (i === index ? !state : state)));

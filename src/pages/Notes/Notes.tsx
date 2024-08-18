@@ -1,8 +1,35 @@
 import Navbar from '@/components/Common/Navbar';
-import { Button, Divider, Stack, Typography } from '@mui/material';
+import { Box, Button, Divider, Stack, Typography } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { Link } from 'react-router-dom';
+
+const transcription = [
+  {
+    scenario:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pulvinar, ipsum eu tempus commodo, justo nisi suscipit nulla, eu scelerisque dolor eros et elit.',
+    value:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pulvinar, ipsum eu tempus commodo, justo nisi suscipit nulla, eu scelerisque dolor eros et elit.',
+  },
+  {
+    scenario:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pulvinar, ipsum eu tempus commodo, justo nisi suscipit nulla, eu scelerisque dolor eros et elit.',
+    value:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pulvinar, ipsum eu tempus commodo, justo nisi suscipit nulla, eu scelerisque dolor eros et elit.',
+  },
+  {
+    scenario:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pulvinar, ipsum eu tempus commodo, justo nisi suscipit nulla, eu scelerisque dolor eros et elit.',
+    value:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pulvinar, ipsum eu tempus commodo, justo nisi suscipit nulla, eu scelerisque dolor eros et elit.',
+  },
+  {
+    scenario:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pulvinar, ipsum eu tempus commodo, justo nisi suscipit nulla, eu scelerisque dolor eros et elit.',
+    value:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pulvinar, ipsum eu tempus commodo, justo nisi suscipit nulla, eu scelerisque dolor eros et elit.',
+  },
+];
 
 const quizAndFlashCardBtnStyle = {
   width: '88%',
@@ -62,6 +89,22 @@ const Notes = () => {
             Review FlashCards
           </div>
         </Button>
+      </Stack>
+
+      <Stack gap={1} mx={2} px={1} my={2} sx={{ maxHeight: '480px', overflowY: 'auto', scrollbarWidth: 'thin' }}>
+        <Typography variant="h6" sx={{ fontFamily: 'Outfit', fontWeight: 600, fontSize: '1rem' }}>
+          Speech to text Transcription
+        </Typography>
+        {transcription.map((item, index) => (
+          <Box key={index}>
+            <Typography variant="body2" gutterBottom sx={{ fontFamily: 'Outfit' }}>
+              <span style={{ fontWeight: 600 }}>Scenario:</span> {item.scenario}
+            </Typography>
+            <Typography variant="body2" sx={{ fontFamily: 'Outfit' }}>
+              <span style={{ fontWeight: 600 }}>Value:</span> {item.value}
+            </Typography>
+          </Box>
+        ))}
       </Stack>
     </Stack>
   );

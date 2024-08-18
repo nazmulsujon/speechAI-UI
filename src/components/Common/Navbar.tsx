@@ -20,7 +20,11 @@ export default function Navbar() {
           <img src="/logo.svg" alt="logo" style={{ width: '100%' }} />
         </Link>
         <Box>
-          <Typography variant="subtitle1" component="div" sx={{ display: 'flex', alignItems: 'center' }}>
+          <Typography
+            variant="subtitle1"
+            component="div"
+            sx={{ display: 'flex', alignItems: 'center', fontWeight: 500, fontFamily: 'Outfit' }}
+          >
             SpeechAI
           </Typography>
         </Box>
