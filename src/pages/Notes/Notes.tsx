@@ -58,11 +58,11 @@ const Notes = () => {
 
       <Divider sx={{ height: '1.5px' }} />
 
-      <Link to="/" state={{ content: 'transcribed' }}>
+      <Link to="/" state={{ content: 'transcribed' }} style={{ maxWidth: '220px' }}>
         <Button
           variant="text"
           startIcon={<ArrowBackIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
-          sx={{ maxWidth: '180px', mx: 3, my: 1, textTransform: 'none', color: '#424A5E' }}
+          sx={{ maxWidth: '180px', mx: 3, my: 1, px: '12px', textTransform: 'none', color: '#424A5E' }}
         >
           My Transcribed
         </Button>

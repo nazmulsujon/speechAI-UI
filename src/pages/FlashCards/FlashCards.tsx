@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Navbar from '@/components/Common/Navbar';
 import { Box, Card, CardContent, Divider, Stack, Typography } from '@mui/material';
+import BackButton from '@/components/Common/BackButton';
 
 const flashcards = [
   {
@@ -48,20 +49,7 @@ const FlashCards: React.FC = () => {
       <Navbar />
       <Divider sx={{ height: '1.5px' }} />
       <Stack my={1}>
-        <Stack gap="0.1rem" px="28px" my={1}>
-          <Typography
-            variant="caption"
-            sx={{ fontFamily: 'Outfit', fontSize: '1rem', fontWeight: 600, color: '#146bff' }}
-          >
-            Flashcards for:
-          </Typography>
-          <Typography variant="h6" sx={{ fontFamily: 'Outfit', fontSize: '1.2rem', fontWeight: 600 }}>
-            {flashcards[currentCardIndex]?.title}
-          </Typography>
-          <Typography variant="caption" sx={{ fontFamily: 'Outfit' }}>
-            {flashcards[currentCardIndex]?.date}
-          </Typography>
-        </Stack>
+        <BackButton path="/notes" />
 
         <Box
           ref={cardContainerRef}

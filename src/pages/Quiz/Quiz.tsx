@@ -3,6 +3,9 @@ import { Card, Typography, Button, Alert, Box, Stack, Divider, CardContent } fro
 import Navbar from '@/components/Common/Navbar';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
+import { Link } from 'react-router-dom';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import BackButton from '@/components/Common/BackButton';
 
 const quizData = [
   {
@@ -72,13 +75,18 @@ const Quiz: React.FC = () => {
       <Stack className="container" textAlign="center">
         <Navbar />
         <Divider sx={{ height: '1.5px' }} />
-        <Stack my={3} px="28px">
-          <Typography variant="h4" sx={{ fontFamily: 'Outfit', fontWeight: 600 }}>
-            Quiz Completed
-          </Typography>
-          <Typography variant="h6" sx={{ fontFamily: 'Outfit', fontSize: '1.2rem', fontWeight: 600 }}>
-            Your Score: {score} out of {quizData.length}
-          </Typography>
+
+        <Stack>
+          <BackButton path="/notes" />
+
+          <Stack my={3} px="28px">
+            <Typography variant="h4" sx={{ fontFamily: 'Outfit', fontWeight: 600 }}>
+              Quiz Completed
+            </Typography>
+            <Typography variant="h6" sx={{ fontFamily: 'Outfit', fontSize: '1.2rem', fontWeight: 600 }}>
+              Your Score: {score} out of {quizData.length}
+            </Typography>
+          </Stack>
         </Stack>
       </Stack>
     );
@@ -88,8 +96,10 @@ const Quiz: React.FC = () => {
     <Stack className="container">
       <Navbar />
       <Divider sx={{ height: '1.5px' }} />
-      <Stack my={1}>
-        <Stack gap="0.1rem" px="28px" my={1}>
+
+      <Stack>
+        <BackButton path="/notes" />
+        <Stack gap="0.1rem" px="28px" mb={1}>
           <Typography
             variant="caption"
             sx={{ fontFamily: 'Outfit', fontSize: '1rem', fontWeight: 600, color: '#146bff' }}
