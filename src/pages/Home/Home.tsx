@@ -8,9 +8,12 @@ import { Divider, Stack } from '@mui/material';
 import { TabContext } from '@mui/lab';
 import Record from '@/components/Record/Record';
 import Transcribed from '@/components/Transcribed/Transcribed';
+import { useLocation } from 'react-router-dom';
 
 const Home = () => {
-  const [content, setContent] = React.useState('record');
+  const location = useLocation();
+  const initialContent = location.state?.content || 'record';
+  const [content, setContent] = React.useState(initialContent);
 
   const handleChange = (_: React.SyntheticEvent, newContent: string) => {
     if (content !== newContent) {

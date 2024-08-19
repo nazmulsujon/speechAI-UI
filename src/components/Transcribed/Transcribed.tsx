@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Stack } from '@mui/material';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const recordings = [
   {
@@ -33,6 +34,7 @@ const recordings = [
 ];
 
 export default function Transcribed() {
+  const navigate = useNavigate();
   const [playStates, setPlayStates] = useState(recordings.map(() => false));
 
   const togglePlayState = (index: number) => {
@@ -45,12 +47,21 @@ export default function Transcribed() {
         <Card
           key={index}
           variant="outlined"
-          sx={{ maxWidth: 345, minHeight: 110, borderRadius: '16px', border: '1px solid #F2F2F2' }}
+          sx={{ maxWidth: 345, minHeight: 110, borderRadius: '16px', border: '1px solid #F2F2F2', cursor: 'pointer' }}
+          onClick={() => {
+            navigate('/notes');
+          }}
         >
           <CardHeader
             sx={{ pb: '8px', pt: '12px' }}
             avatar={
-              <IconButton onClick={() => togglePlayState(index)} aria-label={playStates[index] ? 'pause' : 'play'}>
+              <IconButton
+                onClick={(event) => {
+                  event.stopPropagation();
+                  togglePlayState(index);
+                }}
+                aria-label={playStates[index] ? 'pause' : 'play'}
+              >
                 <img
                   src={playStates[index] ? '/pause-icon.svg' : '/play-icon.svg'}
                   alt={playStates[index] ? 'pause' : 'play'}
@@ -59,15 +70,30 @@ export default function Transcribed() {
               </IconButton>
             }
             action={
-              <IconButton aria-label="settings">
+              <IconButton
+                onClick={(event) => {
+                  event.stopPropagation();
+                }}
+                aria-label="settings"
+              >
                 <MoreVertIcon />
               </IconButton>
             }
             title={recording.title}
           />
 
-          <CardContent sx={{ pt: 0, maxHeight: '48px', overflowY: 'auto', scrollbarWidth: 'thin' }}>
-            <Typography variant="body2" color="text.secondary">
+          <CardContent sx={{ pt: 0 }}>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{
+                overflow: 'hidden',
+                display: '-webkit-box',
+                WebkitBoxOrient: 'vertical',
+                WebkitLineClamp: 2,
+                textOverflow: 'ellipsis',
+              }}
+            >
               {recording.description}
             </Typography>
           </CardContent>
