@@ -3,8 +3,6 @@ import { Card, Typography, Button, Alert, Box, Stack, Divider, CardContent } fro
 import Navbar from '@/components/Common/Navbar';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
-import { Link } from 'react-router-dom';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import BackButton from '@/components/Common/BackButton';
 
 const quizData = [
