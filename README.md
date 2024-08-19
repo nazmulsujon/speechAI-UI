@@ -2,30 +2,6 @@
 
 TypeScript + React + MUI + RRD + ESLint + Prettier
 
-### Getting Started
-
-#### Clone the repo
-
-```
-npx degit emre-cil/vite-mui-ts my-app
-```
-
-```
-cd my-app
-```
-
-#### Install Dependencies
-
-```
-pnpm install
-```
-
-#### Run
-
-```
-pnpm dev
-```
-
 #### Paths
 
 Application using absolute paths
