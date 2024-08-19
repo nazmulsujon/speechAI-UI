@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Navbar from '@/components/Common/Navbar';
-import { Card, CardContent, Divider, Stack, Typography } from '@mui/material';
-import SwipeableViews from 'react-swipeable-views';
+import { Box, Card, CardContent, Divider, Stack, Typography } from '@mui/material';
 
 const flashcards = [
   {
@@ -28,10 +27,21 @@ const flashcards = [
 
 const FlashCards: React.FC = () => {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const cardContainerRef = useRef<HTMLDivElement>(null);
 
   const handleNextCard = () => {
     setCurrentCardIndex((prevIndex) => (prevIndex + 1) % flashcards.length);
   };
+
+  useEffect(() => {
+    if (cardContainerRef.current) {
+      const cardWidth = cardContainerRef.current.children[0].clientWidth;
+      cardContainerRef.current.scrollTo({
+        left: cardWidth * currentCardIndex,
+        behavior: 'smooth',
+      });
+    }
+  }, [currentCardIndex]);
 
   return (
     <Stack className="container">
@@ -53,21 +63,33 @@ const FlashCards: React.FC = () => {
           </Typography>
         </Stack>
 
-        <SwipeableViews index={currentCardIndex} onChangeIndex={handleNextCard}>
+        <Box
+          ref={cardContainerRef}
+          sx={{
+            display: 'flex',
+            overflowX: 'auto',
+            scrollbarWidth: 'none',
+            pl: '28px',
+            scrollSnapType: 'x mandatory',
+          }}
+        >
           {flashcards.map((flashcard, index) => (
             <Card
               key={index}
               variant="outlined"
               sx={{
                 cursor: 'pointer',
-                width: '88%',
+                minWidth: '88%',
                 height: '300px',
                 mx: 'auto',
                 pb: 0,
                 borderRadius: '16px',
                 border: '1px solid #F2F2F2',
                 textAlign: 'center',
+                mr: '12px',
+                scrollSnapAlign: 'center',
               }}
+              onClick={handleNextCard}
             >
               <Typography
                 variant="h6"
@@ -91,7 +113,6 @@ const FlashCards: React.FC = () => {
                   alignItems: 'center',
                   flexDirection: 'column',
                 }}
-                onClick={handleNextCard}
               >
                 <Typography
                   variant="h6"
@@ -105,7 +126,7 @@ const FlashCards: React.FC = () => {
               </CardContent>
             </Card>
           ))}
-        </SwipeableViews>
+        </Box>
       </Stack>
     </Stack>
   );
