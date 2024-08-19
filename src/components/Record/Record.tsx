@@ -70,12 +70,12 @@ const Record = () => {
       <Stack gap={2}>
         <Stack gap={2} direction="row" alignItems="center">
           <Button variant="outlined" sx={uploadBtnStyle}>
-            <img src="/public/audio-icon.svg" alt="audioIcon" style={{ width: '24px', marginBottom: '2px' }} />
+            <img src="/audio-icon.svg" alt="audioIcon" style={{ width: '24px', marginBottom: '2px' }} />
             Audio
           </Button>
 
           <Button variant="outlined" sx={uploadBtnStyle}>
-            <img src="/public/video-icon.svg" alt="vedioIcon" style={{ width: '24px', marginBottom: '2px' }} />
+            <img src="/video-icon.svg" alt="vedioIcon" style={{ width: '24px', marginBottom: '2px' }} />
             Vedio
           </Button>
         </Stack>
@@ -100,7 +100,7 @@ const Record = () => {
             },
           }}
         >
-          <img src="/public/premium-icon.svg" alt="vedioIcon" style={{ width: '24px', marginRight: '6px' }} />
+          <img src="/premium-icon.svg" alt="vedioIcon" style={{ width: '24px', marginRight: '6px' }} />
           Go Premium
         </Button>
       </Stack>
