@@ -69,26 +69,30 @@ const Notes = () => {
       </Link>
 
       <Stack gap={2}>
-        <Button
-          sx={quizAndFlashCardBtnStyle}
-          endIcon={<ArrowForwardIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
-        >
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <img src="/take-quiz.svg" alt="quizIcon" style={{ width: '28px', marginRight: '16px' }} />
-            Take Quiz
-          </div>
-        </Button>
+        <Link to="/quiz" style={{ textDecoration: 'none' }}>
+          <Button
+            sx={quizAndFlashCardBtnStyle}
+            endIcon={<ArrowForwardIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
+          >
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <img src="/take-quiz.svg" alt="quizIcon" style={{ width: '28px', marginRight: '16px' }} />
+              Take Quiz
+            </div>
+          </Button>
+        </Link>
 
-        <Button
-          variant="text"
-          endIcon={<ArrowForwardIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
-          sx={quizAndFlashCardBtnStyle}
-        >
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <img src="/flash-card.svg" alt="flashCardIcon" style={{ width: '28px', marginRight: '16px' }} />
-            Review FlashCards
-          </div>
-        </Button>
+        <Link to="/flashcards" style={{ textDecoration: 'none' }}>
+          <Button
+            variant="text"
+            endIcon={<ArrowForwardIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
+            sx={quizAndFlashCardBtnStyle}
+          >
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <img src="/flash-card.svg" alt="flashCardIcon" style={{ width: '28px', marginRight: '16px' }} />
+              Review FlashCards
+            </div>
+          </Button>
+        </Link>
       </Stack>
 
       <Stack gap={1} mx={2} px={1} my={2} sx={{ maxHeight: '480px', overflowY: 'auto', scrollbarWidth: 'thin' }}>
