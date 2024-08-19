@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import Navbar from '@/components/Common/Navbar';
 import { Card, CardContent, Divider, Stack, Typography } from '@mui/material';
+import SwipeableViews from 'react-swipeable-views';
 
 const flashcards = [
   {
@@ -24,7 +26,13 @@ const flashcards = [
   },
 ];
 
-const FlashCards: React.FC = ({}) => {
+const FlashCards: React.FC = () => {
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+
+  const handleNextCard = () => {
+    setCurrentCardIndex((prevIndex) => (prevIndex + 1) % flashcards.length);
+  };
+
   return (
     <Stack className="container">
       <Navbar />
@@ -38,52 +46,66 @@ const FlashCards: React.FC = ({}) => {
             Flashcards for:
           </Typography>
           <Typography variant="h6" sx={{ fontFamily: 'Outfit', fontSize: '1.2rem', fontWeight: 600 }}>
-            This will be the title // title
+            {flashcards[currentCardIndex]?.title}
           </Typography>
           <Typography variant="caption" sx={{ fontFamily: 'Outfit' }}>
-            Jul 5, 2024 //date
+            {flashcards[currentCardIndex]?.date}
           </Typography>
         </Stack>
 
-        <Card
-          variant="outlined"
-          sx={{
-            width: '88%',
-            height: '300px',
-            mx: 'auto',
-            pb: 0,
-            borderRadius: '16px',
-            border: '1px solid #F2F2F2',
-          }}
-        >
-          <Typography
-            variant="h6"
-            sx={{ px: '20px', pt: '12px', fontFamily: 'Outfit', fontSize: '0.8rem !important', fontWeight: 600 }}
-          >
-            1/5 // currentCard/totalCardLength
-          </Typography>
-
-          <CardContent
-            sx={{
-              pt: '8px',
-              height: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'column',
-            }}
-          >
-            <Typography
-              variant="h6"
-              sx={{ px: '20px', fontFamily: 'Outfit', fontSize: '1rem !important', fontWeight: 600 }}
+        <SwipeableViews index={currentCardIndex} onChangeIndex={handleNextCard}>
+          {flashcards.map((flashcard, index) => (
+            <Card
+              key={index}
+              variant="outlined"
+              sx={{
+                cursor: 'pointer',
+                width: '88%',
+                height: '300px',
+                mx: 'auto',
+                pb: 0,
+                borderRadius: '16px',
+                border: '1px solid #F2F2F2',
+                textAlign: 'center',
+              }}
             >
-              hello 1
-            </Typography>
-            <Typography variant="caption" sx={{ fontFamily: 'Outfit', mt: '0', mb: 2 }}>
-              Tap to flip
-            </Typography>
-          </CardContent>
-        </Card>
+              <Typography
+                variant="h6"
+                sx={{
+                  px: '20px',
+                  pt: '12px',
+                  fontFamily: 'Outfit',
+                  fontSize: '0.8rem !important',
+                  fontWeight: 600,
+                }}
+              >
+                {index + 1}/{flashcards.length}
+              </Typography>
+
+              <CardContent
+                sx={{
+                  pt: '8px',
+                  height: '100%',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexDirection: 'column',
+                }}
+                onClick={handleNextCard}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{ px: '20px', fontFamily: 'Outfit', fontSize: '1rem !important', fontWeight: 600 }}
+                >
+                  {flashcard.title}
+                </Typography>
+                <Typography variant="caption" sx={{ fontFamily: 'Outfit', mt: '0', mb: 2 }}>
+                  Tap to flip
+                </Typography>
+              </CardContent>
+            </Card>
+          ))}
+        </SwipeableViews>
       </Stack>
     </Stack>
   );
