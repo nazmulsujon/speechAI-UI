@@ -1,8 +1,6 @@
-## vite-mui-ts boilerplate
+## SpeechAI
 
-TypeScript + React + Redux + MUI + RRD + ESLint + Prettier
-
-![vite-mui-ts](https://i.ibb.co/j8JSrhV/Screenshot-2023-07-06-121352.png)
+TypeScript + React + MUI + RRD + ESLint + Prettier
 
 ### Getting Started
 
