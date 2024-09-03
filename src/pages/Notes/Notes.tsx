@@ -53,65 +53,67 @@ const quizAndFlashCardBtnStyle = {
 
 const Notes = () => {
   return (
-    <Stack className="container">
-      <Navbar />
+    <div className="container-wrapper">
+      <Stack className="container">
+        <Navbar />
 
-      <Divider sx={{ height: '1.5px' }} />
+        <Divider sx={{ height: '1.5px' }} />
 
-      <Link to="/" state={{ content: 'transcribed' }} style={{ maxWidth: '220px' }}>
-        <Button
-          variant="text"
-          size="small"
-          startIcon={<ArrowBackIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
-          sx={{ maxWidth: '180px', mx: 3, my: 1, px: '12px', textTransform: 'none', color: '#424A5E' }}
-        >
-          My Transcribed
-        </Button>
-      </Link>
-
-      <Stack gap={2}>
-        <Link to="/quiz" style={{ textDecoration: 'none' }}>
-          <Button
-            sx={quizAndFlashCardBtnStyle}
-            endIcon={<ArrowForwardIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
-          >
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <img src="/take-quiz.svg" alt="quizIcon" style={{ width: '28px', marginRight: '16px' }} />
-              Take Quiz
-            </div>
-          </Button>
-        </Link>
-
-        <Link to="/flashcards" style={{ textDecoration: 'none' }}>
+        <Link to="/" state={{ content: 'transcribed' }} style={{ maxWidth: '220px' }}>
           <Button
             variant="text"
-            endIcon={<ArrowForwardIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
-            sx={quizAndFlashCardBtnStyle}
+            size="small"
+            startIcon={<ArrowBackIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
+            sx={{ maxWidth: '180px', mx: 3, my: 1, px: '12px', textTransform: 'none', color: '#424A5E' }}
           >
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <img src="/flash-card.svg" alt="flashCardIcon" style={{ width: '28px', marginRight: '16px' }} />
-              Review FlashCards
-            </div>
+            My Transcribed
           </Button>
         </Link>
-      </Stack>
 
-      <Stack gap={1} mx={2} px={1} my={2} sx={{ maxHeight: '480px', overflowY: 'auto', scrollbarWidth: 'thin' }}>
-        <Typography variant="h6" sx={{ fontFamily: 'Outfit', fontWeight: 600, fontSize: '1rem' }}>
-          Speech to text Transcription
-        </Typography>
-        {transcription.map((item, index) => (
-          <Box key={index}>
-            <Typography variant="body2" gutterBottom sx={{ fontFamily: 'Outfit' }}>
-              <span style={{ fontWeight: 600 }}>Scenario:</span> {item.scenario}
-            </Typography>
-            <Typography variant="body2" sx={{ fontFamily: 'Outfit' }}>
-              <span style={{ fontWeight: 600 }}>Value:</span> {item.value}
-            </Typography>
-          </Box>
-        ))}
+        <Stack gap={2}>
+          <Link to="/quiz" style={{ textDecoration: 'none' }}>
+            <Button
+              sx={quizAndFlashCardBtnStyle}
+              endIcon={<ArrowForwardIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
+            >
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <img src="/take-quiz.svg" alt="quizIcon" style={{ width: '28px', marginRight: '16px' }} />
+                Take Quiz
+              </div>
+            </Button>
+          </Link>
+
+          <Link to="/flashcards" style={{ textDecoration: 'none' }}>
+            <Button
+              variant="text"
+              endIcon={<ArrowForwardIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
+              sx={quizAndFlashCardBtnStyle}
+            >
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <img src="/flash-card.svg" alt="flashCardIcon" style={{ width: '28px', marginRight: '16px' }} />
+                Review FlashCards
+              </div>
+            </Button>
+          </Link>
+        </Stack>
+
+        <Stack gap={1} mx={2} px={1} my={2} sx={{ maxHeight: '480px', overflowY: 'auto', scrollbarWidth: 'thin' }}>
+          <Typography variant="h6" sx={{ fontFamily: 'Outfit', fontWeight: 600, fontSize: '1rem' }}>
+            Speech to text Transcription
+          </Typography>
+          {transcription.map((item, index) => (
+            <Box key={index}>
+              <Typography variant="body2" gutterBottom sx={{ fontFamily: 'Outfit' }}>
+                <span style={{ fontWeight: 600 }}>Scenario:</span> {item.scenario}
+              </Typography>
+              <Typography variant="body2" sx={{ fontFamily: 'Outfit' }}>
+                <span style={{ fontWeight: 600 }}>Value:</span> {item.value}
+              </Typography>
+            </Box>
+          ))}
+        </Stack>
       </Stack>
-    </Stack>
+    </div>
   );
 };
 

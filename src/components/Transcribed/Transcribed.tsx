@@ -1,10 +1,9 @@
 import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { Stack } from '@mui/material';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { Box, Stack } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -47,14 +46,20 @@ export default function Transcribed() {
         <Card
           key={index}
           variant="outlined"
-          sx={{ maxWidth: 345, minHeight: 110, borderRadius: '16px', border: '1px solid #F2F2F2', cursor: 'pointer' }}
-          onClick={() => {
-            navigate('/notes');
+          sx={{
+            maxWidth: 345,
+            minHeight: 110,
+            borderRadius: '16px',
+            border: '1px solid #F2F2F2',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
           }}
         >
-          <CardHeader
-            sx={{ pb: '8px', pt: '12px' }}
-            avatar={
+          <CardContent
+            sx={{ py: '0 !important', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+          >
+            <Box sx={{ bgcolor: '#1976DB', p: 2, borderRadius: '12px', mr: '12px' }}>
               <IconButton
                 onClick={(event) => {
                   event.stopPropagation();
@@ -68,34 +73,34 @@ export default function Transcribed() {
                   style={{ width: '24px' }}
                 />
               </IconButton>
-            }
-            action={
-              <IconButton
-                onClick={(event) => {
-                  event.stopPropagation();
+            </Box>
+            <Stack>
+              <Typography variant="h6" sx={{ fontWeight: 600, fontSize: '14px', fontFamily: 'Poppins' }}>
+                {recording.title}
+              </Typography>
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{
+                  overflow: 'hidden',
+                  display: '-webkit-box',
+                  WebkitBoxOrient: 'vertical',
+                  WebkitLineClamp: 2,
+                  textOverflow: 'ellipsis',
+                  fontFamily: 'Poppins',
+                  fontSize: '0.75rem',
                 }}
-                aria-label="settings"
               >
-                <MoreVertIcon />
-              </IconButton>
-            }
-            title={recording.title}
-          />
-
-          <CardContent sx={{ pt: 0 }}>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{
-                overflow: 'hidden',
-                display: '-webkit-box',
-                WebkitBoxOrient: 'vertical',
-                WebkitLineClamp: 2,
-                textOverflow: 'ellipsis',
+                {recording.description}
+              </Typography>
+            </Stack>
+            <IconButton
+              onClick={() => {
+                navigate('/notes');
               }}
             >
-              {recording.description}
-            </Typography>
+              <ChevronRightIcon color="disabled" />
+            </IconButton>
           </CardContent>
         </Card>
       ))}

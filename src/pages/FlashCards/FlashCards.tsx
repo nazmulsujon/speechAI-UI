@@ -45,78 +45,80 @@ const FlashCards: React.FC = () => {
   }, [currentCardIndex]);
 
   return (
-    <Stack className="container">
-      <Navbar />
-      <Divider sx={{ height: '1.5px' }} />
-      <Stack my={1}>
-        <BackButton path="/notes" />
+    <div className="container-wrapper">
+      <Stack className="container">
+        <Navbar />
+        <Divider sx={{ height: '1.5px' }} />
+        <Stack my={1}>
+          <BackButton path="/notes" />
 
-        <Box
-          ref={cardContainerRef}
-          sx={{
-            display: 'flex',
-            overflowX: 'auto',
-            scrollbarWidth: 'none',
-            pl: '28px',
-            scrollSnapType: 'x mandatory',
-          }}
-        >
-          {flashcards.map((flashcard, index) => (
-            <Card
-              key={index}
-              variant="outlined"
-              sx={{
-                cursor: 'pointer',
-                minWidth: '88%',
-                height: '300px',
-                mx: 'auto',
-                pb: 0,
-                borderRadius: '16px',
-                border: '1px solid #F2F2F2',
-                textAlign: 'center',
-                mr: '12px',
-                scrollSnapAlign: 'center',
-              }}
-              onClick={handleNextCard}
-            >
-              <Typography
-                variant="h6"
+          <Box
+            ref={cardContainerRef}
+            sx={{
+              display: 'flex',
+              overflowX: 'auto',
+              scrollbarWidth: 'none',
+              pl: '28px',
+              scrollSnapType: 'x mandatory',
+            }}
+          >
+            {flashcards.map((flashcard, index) => (
+              <Card
+                key={index}
+                variant="outlined"
                 sx={{
-                  px: '20px',
-                  pt: '12px',
-                  fontFamily: 'Outfit',
-                  fontSize: '0.8rem !important',
-                  fontWeight: 600,
+                  cursor: 'pointer',
+                  minWidth: '88%',
+                  height: '300px',
+                  mx: 'auto',
+                  pb: 0,
+                  borderRadius: '16px',
+                  border: '1px solid #F2F2F2',
+                  textAlign: 'center',
+                  mr: '12px',
+                  scrollSnapAlign: 'center',
                 }}
-              >
-                {index + 1}/{flashcards.length}
-              </Typography>
-
-              <CardContent
-                sx={{
-                  pt: '8px',
-                  height: '100%',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  flexDirection: 'column',
-                }}
+                onClick={handleNextCard}
               >
                 <Typography
                   variant="h6"
-                  sx={{ px: '20px', fontFamily: 'Outfit', fontSize: '1rem !important', fontWeight: 600 }}
+                  sx={{
+                    px: '20px',
+                    pt: '12px',
+                    fontFamily: 'Outfit',
+                    fontSize: '0.8rem !important',
+                    fontWeight: 600,
+                  }}
                 >
-                  {flashcard.title}
+                  {index + 1}/{flashcards.length}
                 </Typography>
-                <Typography variant="caption" sx={{ fontFamily: 'Outfit', mt: '0', mb: 2 }}>
-                  Tap to flip
-                </Typography>
-              </CardContent>
-            </Card>
-          ))}
-        </Box>
+
+                <CardContent
+                  sx={{
+                    pt: '8px',
+                    height: '100%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    sx={{ px: '20px', fontFamily: 'Outfit', fontSize: '1rem !important', fontWeight: 600 }}
+                  >
+                    {flashcard.title}
+                  </Typography>
+                  <Typography variant="caption" sx={{ fontFamily: 'Outfit', mt: '0', mb: 2 }}>
+                    Tap to flip
+                  </Typography>
+                </CardContent>
+              </Card>
+            ))}
+          </Box>
+        </Stack>
       </Stack>
-    </Stack>
+    </div>
   );
 };
 

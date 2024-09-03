@@ -22,59 +22,61 @@ const Home = () => {
   };
 
   return (
-    <Stack className="container">
-      <Navbar />
-      <Divider sx={{ height: '1.5px' }} />
-      <TabContext value={content}>
-        <Box
-          sx={{
-            mt: '16px',
-            width: '88%',
-            height: '41px',
-            mx: 'auto',
-            px: '5px',
-            bgcolor: '#F3F3F3',
-            borderRadius: '30px',
-          }}
-        >
-          <Tabs
-            value={content}
-            onChange={handleChange}
-            centered
-            TabIndicatorProps={{ style: { display: 'none' } }}
+    <div className="container-wrapper">
+      <Stack className="container">
+        <Navbar />
+        <Divider sx={{ height: '1.5px' }} />
+        <TabContext value={content}>
+          <Box
             sx={{
-              '& .MuiTabs-flexContainer': {
-                height: '40px',
-                alignItems: 'center',
-              },
-              '& .MuiTab-root': {
-                minWidth: '50%',
-                height: '32px',
-                minHeight: '32px',
-                borderRadius: '25px',
-                textTransform: 'none',
-                fontWeight: 500,
-                transition: '0.3s',
-                color: '#4A5568',
-                '&.Mui-selected': {
-                  bgcolor: '#FFFFFF',
-                  boxShadow: '0 0 5px rgba(0, 0, 0, 0.1)',
-                },
-              },
+              mt: '16px',
+              width: '88%',
+              height: '41px',
+              mx: 'auto',
+              px: '5px',
+              bgcolor: '#F3F3F3',
+              borderRadius: '30px',
             }}
           >
-            <Tab label="Record" value="record" />
-            <Tab label="Transcribed" value="transcribed" />
-          </Tabs>
-        </Box>
-        <TabPanel value="record">
-          <Record />
-        </TabPanel>
-        <TabPanel value="transcribed">
-          <Transcribed />
-        </TabPanel>
-      </TabContext>
-    </Stack>
+            <Tabs
+              value={content}
+              onChange={handleChange}
+              centered
+              TabIndicatorProps={{ style: { display: 'none' } }}
+              sx={{
+                '& .MuiTabs-flexContainer': {
+                  height: '40px',
+                  alignItems: 'center',
+                },
+                '& .MuiTab-root': {
+                  minWidth: '50%',
+                  height: '32px',
+                  minHeight: '32px',
+                  borderRadius: '25px',
+                  textTransform: 'none',
+                  fontWeight: 500,
+                  transition: '0.3s',
+                  color: '#4A5568',
+                  '&.Mui-selected': {
+                    bgcolor: '#FFFFFF',
+                    boxShadow: '0 0 5px rgba(0, 0, 0, 0.1)',
+                  },
+                },
+              }}
+            >
+              <Tab label="Record" value="record" />
+              <Tab label="Transcribed" value="transcribed" />
+            </Tabs>
+          </Box>
+          <TabPanel value="record">
+            <Record />
+          </TabPanel>
+          <TabPanel value="transcribed">
+            <Transcribed />
+          </TabPanel>
+        </TabContext>
+      </Stack>
+    </div>
   );
 };
 
