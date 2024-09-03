@@ -34,8 +34,7 @@ export default function LargeNavbar() {
           variant="text"
           sx={{
             padding: '7px 32px',
-            fontSize: '12px',
-            fontFamily: 'Poppins',
+            fontSize: '0.75rem',
             borderRadius: '20px',
           }}
         >
@@ -45,8 +44,7 @@ export default function LargeNavbar() {
           variant="contained"
           sx={{
             padding: '7px 32px',
-            fontSize: '12px',
-            fontFamily: 'Poppins',
+            fontSize: '0.75rem',
             borderRadius: '20px',
           }}
         >
