@@ -31,7 +31,7 @@ const transcription = [
   },
 ];
 
-const NotesPage = () => {
+const Notes = () => {
   return (
     <div className="container-wrapper">
       <Stack className="container">
@@ -72,4 +72,4 @@ const NotesPage = () => {
   );
 };
 
-export default NotesPage;
+export default Notes;
