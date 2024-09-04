@@ -39,15 +39,16 @@ const quizAndFlashCardBtnStyle = {
   bgcolor: '#F2F2F2',
   color: '#424A5E',
   fontWeight: 600,
-  border: 'none',
+  border: '1px solid transparent',
   borderRadius: '12px',
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   textTransform: 'none',
+  transition: 'background-color 0.2s ease-in-out, border 0.2s ease-in-out',
   '&:hover': {
-    bgcolor: '#E0E0E0',
-    border: 'none',
+    bgcolor: '#F2F2F2',
+    border: '1px solid #6366f1',
   },
 };
 

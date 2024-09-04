@@ -43,7 +43,7 @@ const policies: { title: string; href: string }[] = [
 
 export default function LargeFooter() {
   return (
-    <Stack direction="column" spacing={4} my={2}>
+    <Stack direction="column" spacing={4} py={3}>
       <Box
         sx={{
           display: 'flex',
@@ -131,13 +131,9 @@ export default function LargeFooter() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          my: '20px',
         }}
       >
-        <Typography
-          variant="body2"
-          sx={{ color: '#777777', textDecoration: 'none', fontWeight: 500, fontSize: '0.7rem' }}
-        >
+        <Typography variant="body2" sx={{ color: '#777777', fontWeight: 500, fontSize: '0.7rem' }}>
           &#169; 2024 Speech AI
         </Typography>
 
