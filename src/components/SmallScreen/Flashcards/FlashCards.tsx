@@ -50,7 +50,9 @@ const FlashCards: React.FC = () => {
         <Navbar />
         <Divider sx={{ height: '1.5px' }} />
         <Stack my={1}>
-          <BackButton path="/notes" />
+          <Box pl={2} mb={1}>
+            <BackButton path="/notes" />
+          </Box>
 
           <Box
             ref={cardContainerRef}

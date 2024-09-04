@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Container } from '@mui/material';
 import LargeNavbar from '@/components/LargeNavbar';
 import LargeFooter from '@/components/LargeFooter';
+import BackButton from '@/components/BackButton';
 
 interface QuizPageProps {
   //
@@ -22,11 +23,11 @@ const QuizPage: React.FC<QuizPageProps> = () => {
         <LargeNavbar />
 
         <Box>
-          {/* <VideoPlayer data={data} />
+          <BackButton path="/quiz" />
 
-          <QuizAndFlashcardBtn />
+          {/* <QuizAndFlashcardBtn />
 
-          <DescriptionSection data={data} /> */}
+          <DescriptionSection data={data} />  */}
         </Box>
       </Box>
 

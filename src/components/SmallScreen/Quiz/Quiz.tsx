@@ -81,7 +81,9 @@ const Quiz: React.FC = () => {
         <Divider sx={{ height: '1.5px' }} />
 
         <Stack>
-          <BackButton path="/notes" />
+          <Box sx={{ mx: '16px' }}>
+            <BackButton path="/notes" />
+          </Box>
           <Stack gap="0.1rem" px="28px" mb={1}>
             <Typography
               variant="caption"

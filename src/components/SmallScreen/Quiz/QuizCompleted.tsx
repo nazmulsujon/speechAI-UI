@@ -15,10 +15,10 @@ const QuizCompleted: React.FC<QuizCompletedProps> = ({ score, quizData }) => {
         <Navbar />
         <Divider sx={{ height: '1.5px' }} />
 
-        <Stack>
+        <Stack px="28px">
           <BackButton path="/notes" />
 
-          <Stack my={3} px="28px">
+          <Stack my={3}>
             <Typography variant="h4" sx={{ fontFamily: 'Outfit', fontWeight: 600 }}>
               Quiz Completed
             </Typography>

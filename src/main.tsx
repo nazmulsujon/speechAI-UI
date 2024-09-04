@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom/client';
 import React from 'react';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import App from './App';
 import './main.css';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 // Create a custom theme
 const theme = createTheme({

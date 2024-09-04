@@ -44,7 +44,18 @@ const Notes = () => {
             variant="text"
             size="small"
             startIcon={<ArrowBackIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
-            sx={{ maxWidth: '180px', mx: 3, my: 1, px: '12px', textTransform: 'none', color: '#424A5E' }}
+            sx={{
+              maxWidth: '180px',
+              mx: 3,
+              my: 2,
+              px: '12px',
+              textTransform: 'none',
+              color: '#424A5E',
+              borderRadius: '20px',
+              '&:hover': {
+                bgcolor: 'transparent',
+              },
+            }}
           >
             My Transcribed
           </Button>

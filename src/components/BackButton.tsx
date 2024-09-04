@@ -14,7 +14,17 @@ const BackButton: React.FC<BackButtonProps> = ({ path }) => {
         variant="text"
         size="small"
         startIcon={<ArrowBackIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
-        sx={{ width: '84px', mx: '28px', my: 1, px: '12px', textTransform: 'none', color: '#424A5E' }}
+        sx={{
+          width: '84px',
+          my: 1,
+          px: '12px',
+          textTransform: 'none',
+          color: '#424A5E',
+          borderRadius: '20px',
+          '&:hover': {
+            bgcolor: 'transparent',
+          },
+        }}
       >
         Back
       </Button>

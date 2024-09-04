@@ -10,9 +10,11 @@ const Routing = () => {
   return (
     <Routes>
       <Route path="*" element={<HomePage />} />
+
       <Route path="/transcribed-details" element={<TranscribedDetailsPage />} />
       <Route path="/quiz" element={<QuizPage />} />
       <Route path="/flashcards" element={<FlashCardsPage />} />
+
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
     </Routes>
