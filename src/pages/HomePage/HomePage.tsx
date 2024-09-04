@@ -3,14 +3,14 @@ import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import TabPanel from '@mui/lab/TabPanel';
-import Navbar from '@/components/Common/Navbar';
+import Navbar from '@/components/Navbar';
 import { Divider, Stack } from '@mui/material';
 import { TabContext } from '@mui/lab';
-import Record from '@/components/Record/Record';
-import Transcribed from '@/components/Transcribed/Transcribed';
 import { useLocation } from 'react-router-dom';
+import Transcribed from './Transcribed';
+import Record from './Record';
 
-const Home = () => {
+const HomePage = () => {
   const location = useLocation();
   const initialContent = location.state?.content || 'record';
   const [content, setContent] = React.useState(initialContent);
@@ -80,4 +80,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

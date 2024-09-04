@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-import Navbar from '@/components/Common/Navbar';
 import { Box, Card, CardContent, Divider, Stack, Typography } from '@mui/material';
-import BackButton from '@/components/Common/BackButton';
+import Navbar from '@/components/Navbar';
+import BackButton from '@/components/BackButton';
 
 const flashcards = [
   {
@@ -26,7 +26,7 @@ const flashcards = [
   },
 ];
 
-const FlashCards: React.FC = () => {
+const FlashCardsPage: React.FC = () => {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const cardContainerRef = useRef<HTMLDivElement>(null);
 
@@ -122,4 +122,4 @@ const FlashCards: React.FC = () => {
   );
 };
 
-export default FlashCards;
+export default FlashCardsPage;

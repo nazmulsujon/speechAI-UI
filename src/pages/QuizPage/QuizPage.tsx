@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import Navbar from '@/components/Navbar';
+import BackButton from '@/components/BackButton';
 import { Card, Typography, Button, Alert, Box, Stack, Divider, CardContent } from '@mui/material';
-import Navbar from '@/components/Common/Navbar';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import CancelIcon from '@mui/icons-material/Cancel';
-import BackButton from '@/components/Common/BackButton';
+import QuizCompleted from './QuizCompleted';
 
 const quizData = [
   {
@@ -38,7 +40,7 @@ const quizData = [
   },
 ];
 
-const Quiz: React.FC = () => {
+const QuizPage: React.FC = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
@@ -69,27 +71,7 @@ const Quiz: React.FC = () => {
   const currentQuestion = quizData[currentQuestionIndex];
 
   if (isQuizCompleted) {
-    return (
-      <div className="container-wrapper">
-        <Stack className="container" textAlign="center">
-          <Navbar />
-          <Divider sx={{ height: '1.5px' }} />
-
-          <Stack>
-            <BackButton path="/notes" />
-
-            <Stack my={3} px="28px">
-              <Typography variant="h4" sx={{ fontFamily: 'Outfit', fontWeight: 600 }}>
-                Quiz Completed
-              </Typography>
-              <Typography variant="h6" sx={{ fontFamily: 'Outfit', fontSize: '1.2rem', fontWeight: 600 }}>
-                Your Score: {score} out of {quizData.length}
-              </Typography>
-            </Stack>
-          </Stack>
-        </Stack>
-      </div>
-    );
+    return <QuizCompleted quizData={quizData} score={score} />;
   }
 
   return (
@@ -190,7 +172,7 @@ const Quiz: React.FC = () => {
           </Card>
         </Stack>
 
-        <Box px={3} py={1} display="flex" justifyContent="flex-end" width="100%">
+        <Box mt={1} px={3} py={1} display="flex" justifyContent="flex-end" width="100%">
           <Button
             variant="contained"
             sx={{
@@ -198,8 +180,10 @@ const Quiz: React.FC = () => {
               textTransform: 'none',
               fontFamily: 'Outfit',
               background: 'linear-gradient(to bottom, #14DCFE , #1465FF)',
+              borderRadius: '20px',
             }}
             onClick={handleNextClick}
+            endIcon={<ArrowRightAltIcon fontSize="inherit" />}
           >
             {currentQuestionIndex < quizData.length - 1 ? 'Next' : 'Finish'}
           </Button>
@@ -209,4 +193,4 @@ const Quiz: React.FC = () => {
   );
 };
 
-export default Quiz;
+export default QuizPage;

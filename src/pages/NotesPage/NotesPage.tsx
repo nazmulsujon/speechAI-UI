@@ -1,8 +1,8 @@
-import Navbar from '@/components/Common/Navbar';
+import Navbar from '@/components/Navbar';
 import { Box, Button, Divider, Stack, Typography } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { Link } from 'react-router-dom';
+import QuizAndFlashcardBtn from './QuizAndFlashcardBtn';
 
 const transcription = [
   {
@@ -31,28 +31,7 @@ const transcription = [
   },
 ];
 
-const quizAndFlashCardBtnStyle = {
-  width: '88%',
-  height: '52px',
-  mx: 'auto',
-  px: 2,
-  bgcolor: '#F2F2F2',
-  color: '#424A5E',
-  fontWeight: 600,
-  border: '1px solid transparent',
-  borderRadius: '12px',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  textTransform: 'none',
-  transition: 'background-color 0.2s ease-in-out, border 0.2s ease-in-out',
-  '&:hover': {
-    bgcolor: '#F2F2F2',
-    border: '1px solid #6366f1',
-  },
-};
-
-const Notes = () => {
+const NotesPage = () => {
   return (
     <div className="container-wrapper">
       <Stack className="container">
@@ -71,32 +50,7 @@ const Notes = () => {
           </Button>
         </Link>
 
-        <Stack gap={2}>
-          <Link to="/quiz" style={{ textDecoration: 'none' }}>
-            <Button
-              sx={quizAndFlashCardBtnStyle}
-              endIcon={<ArrowForwardIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
-            >
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <img src="/take-quiz.svg" alt="quizIcon" style={{ width: '28px', marginRight: '16px' }} />
-                Take Quiz
-              </div>
-            </Button>
-          </Link>
-
-          <Link to="/flashcards" style={{ textDecoration: 'none' }}>
-            <Button
-              variant="text"
-              endIcon={<ArrowForwardIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
-              sx={quizAndFlashCardBtnStyle}
-            >
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <img src="/flash-card.svg" alt="flashCardIcon" style={{ width: '28px', marginRight: '16px' }} />
-                Review FlashCards
-              </div>
-            </Button>
-          </Link>
-        </Stack>
+        <QuizAndFlashcardBtn />
 
         <Stack gap={1} mx={2} px={1} my={2} sx={{ maxHeight: '480px', overflowY: 'auto', scrollbarWidth: 'thin' }}>
           <Typography variant="h6" sx={{ fontFamily: 'Outfit', fontWeight: 600, fontSize: '1rem' }}>
@@ -118,4 +72,4 @@ const Notes = () => {
   );
 };
 
-export default Notes;
+export default NotesPage;
