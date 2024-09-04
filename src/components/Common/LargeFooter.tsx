@@ -47,12 +47,20 @@ export default function LargeFooter() {
       <Box
         sx={{
           display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
           justifyContent: 'space-between',
           alignItems: 'center',
           my: '20px',
         }}
       >
-        <Stack alignItems="center" direction="row" spacing={1}>
+        <Stack
+          alignItems="center"
+          direction="row"
+          spacing={1}
+          sx={{
+            mb: { xs: 1, md: 0 },
+          }}
+        >
           <Link to="/" style={{ width: '32px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <img src="/logo.svg" alt="logo" style={{ width: '100%' }} />
           </Link>
@@ -67,18 +75,24 @@ export default function LargeFooter() {
           </Box>
         </Stack>
 
-        <ul style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          {menuItems.map((item, index) => (
-            <li style={{ listStyle: 'none', marginLeft: index !== 0 ? '0.8rem' : '0' }} key={index}>
-              <Link
-                style={{ color: '#0D0C22', textDecoration: 'none', fontWeight: 500, fontSize: '0.75rem' }}
-                to={item.href}
-              >
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <Stack
+          sx={{
+            mb: { xs: 1.5, md: 0 },
+          }}
+        >
+          <ul style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
+            {menuItems.map((item, index) => (
+              <li style={{ listStyle: 'none', marginLeft: index !== 0 ? '0.8rem' : '0' }} key={index}>
+                <Link
+                  style={{ color: '#0D0C22', textDecoration: 'none', fontWeight: 500, fontSize: '0.75rem' }}
+                  to={item.href}
+                >
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Stack>
 
         <ul style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           {socials.map((item, index) => (
