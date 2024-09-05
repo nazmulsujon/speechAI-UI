@@ -1,24 +1,51 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import BackButton from '@/components/BackButton';
-import { Typography, Stack, Divider } from '@mui/material';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { Typography, Stack, Box, Container, Button } from '@mui/material';
+import LargeNavbar from '@/components/LargeNavbar';
+import LargeFooter from '@/components/LargeFooter';
 
 interface QuizCompletedProps {
   quizData: { question: string; options: string[]; correctAnswerIndex: number }[];
   score: number;
+  resetQuiz: () => void;
 }
 
-const QuizCompleted: React.FC<QuizCompletedProps> = ({ score, quizData }) => {
+const QuizCompleted: React.FC<QuizCompletedProps> = ({ score, quizData, resetQuiz }) => {
   return (
-    <div className="container-wrapper">
-      <Stack className="container" textAlign="center">
-        <Navbar />
-        <Divider sx={{ height: '1.5px' }} />
+    <Container
+      sx={{
+        maxWidth: '1080px !important',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+      }}
+    >
+      <Box>
+        <LargeNavbar />
 
-        <Stack>
-          <BackButton path="/notes" />
+        <Box>
+          <Button
+            onClick={() => resetQuiz()}
+            variant="text"
+            size="small"
+            startIcon={<ArrowBackIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
+            sx={{
+              width: '84px',
+              my: 1,
+              px: '12px',
+              textTransform: 'none',
+              color: '#424A5E',
+              borderRadius: '20px',
+              '&:hover': {
+                bgcolor: 'transparent',
+              },
+            }}
+          >
+            Back
+          </Button>
 
-          <Stack my={3} px="28px">
+          <Stack my={1} textAlign="center" pt={5}>
             <Typography variant="h4" sx={{ fontFamily: 'Outfit', fontWeight: 600 }}>
               Quiz Completed
             </Typography>
@@ -26,9 +53,11 @@ const QuizCompleted: React.FC<QuizCompletedProps> = ({ score, quizData }) => {
               Your Score: {score} out of {quizData.length}
             </Typography>
           </Stack>
-        </Stack>
-      </Stack>
-    </div>
+        </Box>
+      </Box>
+
+      <LargeFooter />
+    </Container>
   );
 };
 

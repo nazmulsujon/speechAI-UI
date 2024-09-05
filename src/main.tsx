@@ -6,8 +6,7 @@ import './main.css';
 
 // Create a custom theme
 const theme = createTheme({
-  direction: 'rtl',
-  // Add more theme customization here if needed
+  direction: 'ltr',
 });
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
