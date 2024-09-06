@@ -102,9 +102,9 @@ const QuizPage: React.FC = () => {
         <LargeNavbar />
 
         <Box>
-          <BackButton path="/quiz" />
+          <BackButton btnText="Quiz" path="/quiz" />
 
-          <Stack spacing={2} maxWidth={{ xs: '100%', md: 400 }} mx="auto" my={2}>
+          <Stack mt={2} spacing={2} maxWidth={{ xs: '100%', md: 400 }} mx="auto">
             <Box>
               <Typography variant="body2" sx={{ color: '#969696', fontWeight: 500, fontSize: '0.7rem' }} mb={0.5}>
                 Question {currentQuestionIndex + 1} of {quizData.length}

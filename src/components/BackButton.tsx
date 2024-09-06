@@ -5,17 +5,18 @@ import { Button } from '@mui/material';
 
 type BackButtonProps = {
   path: string;
+  btnText?: string;
 };
 
-const BackButton: React.FC<BackButtonProps> = ({ path }) => {
+const BackButton: React.FC<BackButtonProps> = ({ path, btnText }) => {
   return (
-    <Link to={path} style={{ maxWidth: '84px' }}>
+    <Link to={path} style={{ maxWidth: '104px' }}>
       <Button
         variant="text"
         size="small"
         startIcon={<ArrowBackIosIcon sx={{ color: '#424A5E', width: '0.8em' }} />}
         sx={{
-          width: '84px',
+          width: '104px',
           my: 1,
           px: '12px',
           textTransform: 'none',
@@ -26,7 +27,7 @@ const BackButton: React.FC<BackButtonProps> = ({ path }) => {
           },
         }}
       >
-        Back
+        {btnText ? btnText : 'Back'}
       </Button>
     </Link>
   );
