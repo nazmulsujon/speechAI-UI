@@ -4,6 +4,9 @@ import LargeNavbar from '@/components/LargeNavbar';
 import LargeFooter from '@/components/LargeFooter';
 import BackButton from '@/components/BackButton';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
 import QuizCompleted from './QuizCompleted';
 
 const quizData = [
@@ -109,8 +112,15 @@ const QuizPage: React.FC = () => {
               <LinearProgress
                 variant="determinate"
                 value={((currentQuestionIndex + 1) / quizData.length) * 100}
-                color="success"
-                sx={{ width: '92%', borderRadius: '20px', direction: 'ltr' }} // Ensure left-to-right fill
+                sx={{
+                  width: '92%',
+                  borderRadius: '20px',
+                  direction: 'ltr',
+                  backgroundColor: '#e0e0e0',
+                  '& .MuiLinearProgress-bar': {
+                    backgroundColor: '#00B000',
+                  },
+                }}
               />
             </Box>
             <Typography fontFamily="Poppins" variant="h6" mt={0.5} fontWeight={600}>
@@ -133,17 +143,15 @@ const QuizPage: React.FC = () => {
                   onClick={() => handleOptionClick(index)}
                 >
                   <IconButton sx={{ marginRight: '4px' }} disabled={answerSelected}>
-                    <img
-                      src={
-                        selectedOptionIndex === index
-                          ? isCorrect
-                            ? '/checked-icon.svg'
-                            : '/cross-icon.svg'
-                          : '/unchecked-icon.svg'
-                      }
-                      alt=""
-                      style={{ width: '22px', height: '22px' }}
-                    />
+                    {selectedOptionIndex === index ? (
+                      isCorrect ? (
+                        <CheckBoxIcon color="success" />
+                      ) : (
+                        <DisabledByDefaultIcon color="error" />
+                      )
+                    ) : (
+                      <CheckBoxOutlineBlankIcon color="disabled" />
+                    )}
                   </IconButton>
 
                   <span>{option}</span>
