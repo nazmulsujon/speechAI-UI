@@ -1,8 +1,11 @@
 import React from 'react';
-import { Box, Container, Stack } from '@mui/material';
+import { Avatar, Box, Container, IconButton, Stack, Typography } from '@mui/material';
 import LargeNavbar from '@/components/LargeNavbar';
 import BackButton from '@/components/BackButton';
 import SearchBar from '@/components/SearchBar';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
+import MessageIcon from '@mui/icons-material/Message';
 
 const flashcards = [
   {
@@ -38,7 +41,7 @@ const FlashCardsPage: React.FC = () => {
         mx: 'auto',
         display: 'flex',
         flexDirection: 'column',
-        p: 0,
+        p: { md: 0 },
         overflow: 'hidden',
       }}
     >
@@ -68,7 +71,6 @@ const FlashCardsPage: React.FC = () => {
         <Box
           sx={{
             mt: 2,
-            maxWidth: { xs: '100%', md: 400 },
             mx: 'auto',
             overflowY: 'auto',
             flex: 1,
@@ -82,9 +84,8 @@ const FlashCardsPage: React.FC = () => {
                 key={index}
                 sx={{
                   mx: 'auto',
-                  bgcolor: 'transparent',
-                  border: 'transparent',
-                  boxShadow: 'none',
+                  width: { xs: '100%', md: 420 },
+                  position: 'relative',
                 }}
               >
                 <img
@@ -94,8 +95,57 @@ const FlashCardsPage: React.FC = () => {
                     height: '31.25rem',
                     width: '100%',
                     borderRadius: '8px',
+                    marginBottom: '-20px',
                   }}
                 />
+
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    bottom: '68px',
+                    left: '44px',
+                  }}
+                >
+                  <Stack direction="row" alignItems="start">
+                    <Avatar
+                      sx={{ width: 48, height: 48, marginRight: '8px' }}
+                      alt={`avatar of ${item.user_name}`}
+                      src={item.avatar ? item.avatar : '/avatar.png'}
+                    />
+
+                    <Stack spacing={0.5} mt={0.5}>
+                      <Typography
+                        variant="h6"
+                        sx={{ color: '#fff', fontSize: '14px', fontWeight: 600, fontFamily: 'Poppins' }}
+                      >
+                        {item.user_name}
+                      </Typography>
+                      <Typography variant="body2" sx={{ color: '#969696', fontSize: '12px', fontFamily: 'Poppins' }}>
+                        {item.description}
+                      </Typography>
+                    </Stack>
+                  </Stack>
+                </Box>
+
+                <Stack direction="row" justifyContent="space-between" alignItems="center" px={3} mb={1}>
+                  <Stack direction="row" alignItems="center" columnGap={3}>
+                    <IconButton>
+                      <ThumbUpIcon sx={{ color: '#000000' }} />
+                    </IconButton>
+                    <IconButton>
+                      <ThumbDownAltIcon sx={{ color: '#000000' }} />
+                    </IconButton>
+                  </Stack>
+
+                  <Stack direction="row" alignItems="center" columnGap={3}>
+                    <IconButton>
+                      <MessageIcon sx={{ color: '#000000' }} />
+                    </IconButton>
+                    <IconButton>
+                      <img src="/share.svg" alt="share-icon" style={{ width: '24px', height: '20px' }} />
+                    </IconButton>
+                  </Stack>
+                </Stack>
               </Box>
             ))}
           </Stack>
